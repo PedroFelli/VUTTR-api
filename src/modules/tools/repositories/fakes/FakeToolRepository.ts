@@ -1,4 +1,4 @@
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 import Tool, { ITool, ToolDocument } from '../../models/Tools';
 import ToolDTO from '../../models/IToolDTO';
 import IToolRepository from '../IToolRepository';
@@ -9,7 +9,7 @@ class ToolRepository implements IToolRepository {
   public async create(data: ToolDocument): Promise<ToolDTO> {
     const tool = new Tool();
 
-    tool.id = uuid();
+    tool.id = uuidv4();
     tool.title = data.title;
     tool.description = data.description;
     tool.link = data.link;

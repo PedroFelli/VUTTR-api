@@ -1,4 +1,5 @@
 import { sign } from 'jsonwebtoken';
+
 import AppError from '../../../errors/AppError';
 import authConfig from '../../../config/auth';
 
@@ -27,15 +28,15 @@ class AuthenticateUserService {
   ) {}
 
   public async execute({ email, password }: IRequest): Promise<IResponse> {
-    const user = await this.usersRepository.findByEmail(email);
+    const userFind = await this.usersRepository.findByEmail(email);
 
-    if (!user) {
+    if (!userFind) {
       throw new AppError('Incorrect email/password.', 401);
     }
 
     const passwordMatched = await this.hashProvider.compareHash(
       password,
-      user.password,
+      userFind.password,
     );
 
     if (!passwordMatched) {
@@ -45,9 +46,14 @@ class AuthenticateUserService {
     const { secret, expiresIn } = authConfig.jwt;
 
     const token = sign({}, secret, {
-      subject: user.id,
+      subject: userFind.id,
       expiresIn,
     });
+
+    const user = {
+      name: userFind.name,
+      email: userFind.email,
+    };
 
     return {
       user,

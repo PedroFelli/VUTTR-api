@@ -8,6 +8,7 @@ This project was made using the follow technologies:
 * [Node](https://nodejs.org/en/)
 * [Express](https://expressjs.com/)
 * [MongoDB](https://mongodb.com/docs)
+* [Mongoose](https://mongoosejs.com/)
 * [Jest](https://jestjs.io/)
 
 
@@ -24,7 +25,7 @@ This project was made using the follow technologies:
 
 ## Edit .env
 
-  Copy the `.env-example` to `.env`, and put your MONGODB_URL=
+  Copy the `example.env` to `.env`, and put your `MONGODB_URL`= and `APP_SECRET`
 
 ## Run the app
 
@@ -35,7 +36,21 @@ This project was made using the follow technologies:
 
     yarn jest
 
+
+
+
 # Data Structures
+
+## User (object)
++ name: Pedro (string)
++ email: pedro@email.com (string)
++ password: yourpassord (string)
+
+## Login (object)
+
++ email: pedro@email.com (string)
++ password: yourpassord (string)
+
 
 ## Tool (object)
 + id: 5f288c77ec82b65011cf6ab5 (string)
@@ -45,16 +60,96 @@ This project was made using the follow technologies:
 + tags: ["organization","organizing"] (Array[string])
 
 
+## User [/users]
+
+### Create new User  [POST]
++ Request (application/json)
+    + Body
+
+            {
+           	"name": "Pedro",
+	          "email": "pedro@email.com",
+	          "password": "12345678"
+          },
+    + Schema
+
+            {
+              "$users": "http://localhost/$users/",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+              }
+            }
++ Response 201 (application/json)
+    + Attributes (User)
+
+            {
+           	  "name": "Pedro",
+	            "email": "pedro@email.com",
+            },
+
+
+## Session [/session]
+
+### Create new session(login) [POST]
+  Create new session to get your `token`
+
++ Request (application/json)
+    + Body
+
+            {
+	          "email": "pedro@email.com",
+	          "password": "12345678"
+          },
+    + Schema
+
+            {
+              "$users": "http://localhost/$users/",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+              }
+            }
++ Response 201 (application/json)
+    + Attributes (User)
+
+            {
+           	  "user": {
+                  "name": "Pedro",
+                  "email": "pedro@gmail.com"
+              },
+              "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTY5ODM4MTMsImV4cCI6MTU5NzA3MDIxMywic3ViIjoiNWYzMDA2MTNjY2UyMjc1MDRiNTVhODUyIn0.1_vWJwR5yZ_3gMlG-63IEli9Zr2XzpC4qLolZV1Beqw"
+            },
+
 
 ## Tools [/tools]
+### To use these routes you need to add your `token` in the request  header
 
 ### Retrieve All Tools [GET]
+
++ Headers
+  + Authentication: Bearer JWT(required)
 + Response 200 (application/json)
     + Attributes (array[Tool])
 
 ## Tools [/tools?tag={$tag}]
 
 ### Retrieve All Tool with specific tag[GET]
++ Headers
+   + Authentication: Bearer JWT(required)
 + Parameters
     + tag (string)
 + Response 200 (application/json)
@@ -64,6 +159,8 @@ This project was made using the follow technologies:
 
 ### Create new Tool  [POST]
 + Request (application/json)
+    + Headers
+       + Authentication: Bearer JWT(required)
     + Body
 
             {
@@ -106,6 +203,8 @@ This project was made using the follow technologies:
 ## Tools [/tools/{$id}]
 
 ### Delete Tool[DELETE]
++ Headers
+    + Authentication: Bearer JWT(required)
 + Parameters
     + id (string)
 + Response 204 (application/json)

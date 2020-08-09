@@ -1,4 +1,4 @@
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 import User from '../../models/User';
 import IUserDTO from '../../models/IUserDTO';
 import UsersRepository from '../IUserRepository';
@@ -9,15 +9,19 @@ class FakeUsersRepository implements UsersRepository {
   public async create(data: IUserDTO): Promise<IUserDTO> {
     const user = new User();
 
-    Object.assign(user, { id: uuid() }, data);
+    await Object.assign(user, { id: uuidv4() }, data);
 
-    this.users.push(user);
+    await this.users.push(user);
 
     return user;
   }
 
-  public async findByEmail(email: string): Promise<IUserDTO | undefined> {
+  public async findByEmail(email: string): Promise<IUserDTO | null> {
     const fidnUser = this.users.find(user => user.email === email);
+
+    if (fidnUser === undefined) {
+      return null;
+    }
 
     return fidnUser;
   }

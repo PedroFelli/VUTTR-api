@@ -8,8 +8,9 @@ describe('Auth user', () => {
   it('should be able to authenticate', async () => {
     const fakeUserRepository = new FakeUserRepository();
     const fakeHashProvider = new FakeHashProvider();
+    const hashProvider = new FakeHashProvider();
 
-    const createUser = new CreateUserservice(fakeUserRepository);
+    const createUser = new CreateUserservice(fakeUserRepository, hashProvider);
 
     const authenticateService = new AuthenticateUserService(
       fakeUserRepository,
@@ -52,7 +53,10 @@ describe('Auth user', () => {
     const fakeUserRepository = new FakeUserRepository();
     const fakeHashProvider = new FakeHashProvider();
 
-    const createUser = new CreateUserservice(fakeUserRepository);
+    const createUser = new CreateUserservice(
+      fakeUserRepository,
+      fakeHashProvider,
+    );
 
     const authenticateService = new AuthenticateUserService(
       fakeUserRepository,
