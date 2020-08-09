@@ -1,1 +1,1 @@
-web: yarn start
+yarn ts-node --transpile-only  src/server
