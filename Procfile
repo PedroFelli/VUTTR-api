@@ -1,1 +1,1 @@
-yarn ts-node --transpile-only  src/server
+web: yarn ts-node --transpile-only  src/server
