@@ -35,6 +35,10 @@ class ToolRepository implements IToolRepository {
   public async findByTag(tag: string): Promise<ToolDTO[] | undefined> {
     const tools = await Tool.find({ tags: tag });
 
+    if (tools.length === 0) {
+      return undefined;
+    }
+
     return tools;
   }
 }

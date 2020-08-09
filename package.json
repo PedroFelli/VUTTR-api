@@ -15,10 +15,12 @@
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
+    "celebrate": "^12.2.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.27",
+    "reflect-metadata": "^0.1.13",
     "uuid": "^8.3.0",
     "uuidv4": "^6.2.1"
   },

@@ -39,6 +39,8 @@ This project was made using the follow technologies:
 
 
 
+
+
 # Data Structures
 
 ## User (object)
@@ -135,7 +137,7 @@ This project was made using the follow technologies:
             },
 
 
-## Tools [/tools]
+## Tools [/tools/all]
 ### To use these routes you need to add your `token` in the request  header
 
 ### Retrieve All Tools [GET]
@@ -145,7 +147,7 @@ This project was made using the follow technologies:
 + Response 200 (application/json)
     + Attributes (array[Tool])
 
-## Tools [/tools?tag={$tag}]
+## Tools [/tools/{$tag}]
 
 ### Retrieve All Tool with specific tag[GET]
 + Headers

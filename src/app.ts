@@ -1,6 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express';
 import 'dotenv/config';
-import 'reflect-metadata';
 import AppError from './errors/AppError';
 import router from './routes';
 
@@ -19,7 +18,12 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
     });
   }
 
-  console.log(err);
+  if (err instanceof Error && err.joi.details[0].message) {
+    return response.status(400).json({
+      status: 'error',
+      message: err.joi.details[0].message,
+    });
+  }
 
   return response.status(500).json({
     status: 'error',
