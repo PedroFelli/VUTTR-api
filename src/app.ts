@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import 'dotenv/config';
+import cors from 'cors';
 import AppError from './errors/AppError';
 import router from './routes';
 
@@ -7,6 +8,7 @@ require('./config/db');
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(router);
 
