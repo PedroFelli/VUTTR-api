@@ -24,7 +24,8 @@
     "mongoose": "^5.9.27",
     "reflect-metadata": "^0.1.13",
     "uuid": "^8.3.0",
-    "uuidv4": "^6.2.1"
+    "uuidv4": "^6.2.1",
+    "ts-node-dev": "^1.0.0-pre.56",
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -40,7 +41,6 @@
     "jest": "^26.2.2",
     "prettier": "^2.0.5",
     "ts-jest": "^26.1.4",
-    "ts-node-dev": "^1.0.0-pre.56",
     "typescript": "^3.9.7"
   }
 }
