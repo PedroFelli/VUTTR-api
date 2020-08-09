@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import ToolController from './controllers/ToolController';
+import ToolController from './modules/tools/controllers/ToolController';
 
 const router = Router();
 

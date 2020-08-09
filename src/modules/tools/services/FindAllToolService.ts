@@ -1,6 +1,6 @@
 import IToolRespository from '../repositories/IToolRepository';
 
-import IDataDTO from '../models/ToolDTO';
+import IDataDTO from '../models/IToolDTO';
 
 class FindAllToolService {
   constructor(private toolRepository: IToolRespository) {}

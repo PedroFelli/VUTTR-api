@@ -1,5 +1,5 @@
 import IToolRespository from '../repositories/IToolRepository';
-import AppError from '../errors/AppError';
+import AppError from '../../../errors/AppError';
 
 class FindToolService {
   constructor(private toolRepository: IToolRespository) {}

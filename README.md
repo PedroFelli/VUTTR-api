@@ -12,13 +12,19 @@ This project was made using the follow technologies:
 
 
 
-## Install
+## Clone the repository
+
+    git clone https://github.com/PedroFelli/VUTTR-api.git
+
+
+## Install the dependencies
+    cd VUTTR-api
 
     yarn
 
 ## Edit .env
 
-  Copy the .env-example to .env, and put your MONGODB_URL=
+  Copy the `.env-example` to `.env`, and put your MONGODB_URL=
 
 ## Run the app
 
@@ -34,9 +40,9 @@ This project was made using the follow technologies:
 ## Tool (object)
 + id: 5f288c77ec82b65011cf6ab5 (string)
 + title: Notion (string)
-+ description - All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized. (string)
++ description: All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized. (string)
 + link: "https://github.com/typicode/hotel" (string)
-+ tags: ["organization","organizing"] (string[])
++ tags: ["organization","organizing"] (Array[string])
 
 
 

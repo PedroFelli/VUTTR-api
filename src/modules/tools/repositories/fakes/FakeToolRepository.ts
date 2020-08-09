@@ -1,6 +1,6 @@
 import { uuid } from 'uuidv4';
 import Tool, { ITool, ToolDocument } from '../../models/Tools';
-import ToolDTO from '../../models/ToolDTO';
+import ToolDTO from '../../models/IToolDTO';
 import IToolRepository from '../IToolRepository';
 
 class ToolRepository implements IToolRepository {

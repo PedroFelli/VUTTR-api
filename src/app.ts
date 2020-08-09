@@ -2,7 +2,7 @@ import express from 'express';
 import 'dotenv/config';
 import router from './routes';
 
-require('./database/db');
+require('./config/db');
 
 const app = express();
 

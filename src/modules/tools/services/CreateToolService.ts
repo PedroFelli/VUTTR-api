@@ -1,6 +1,6 @@
-import IDataDTO from '../models/ToolDTO';
+import IDataDTO from '../models/IToolDTO';
 import IToolRepository from '../repositories/IToolRepository';
-import AppError from '../errors/AppError';
+import AppError from '../../../errors/AppError';
 
 class CreateToolService {
   constructor(private toolRepository: IToolRepository) {}

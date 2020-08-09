@@ -1,4 +1,4 @@
-import IDataDTO from '../models/ToolDTO';
+import IDataDTO from '../models/IToolDTO';
 
 export default interface IToolRespository {
   create(data: IDataDTO): Promise<IDataDTO>;
