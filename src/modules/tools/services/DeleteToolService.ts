@@ -8,7 +8,7 @@ class FindToolService {
     const findTool = await this.toolRepository.findById(id);
 
     if (!findTool) {
-      throw new AppError('Tool not find error');
+      throw new AppError('Tool not find');
     }
 
     await this.toolRepository.delete(id);

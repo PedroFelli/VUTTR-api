@@ -1,5 +1,10 @@
+###  FORMAT: 1.0
+####  HOST: https://alpha-api.app.net
+
 # Desafio Back-end VUTTR (Very Useful Tools to Remember)
   Um simples repositório para gerenciar ferramentas com seus respectivos nomes, links, descrições e tags.
+
+  Você pode testar os
 
 # Technologies
 This project was made using the follow technologies:
@@ -12,46 +17,37 @@ This project was made using the follow technologies:
 * [Jest](https://jestjs.io/)
 
 
+# Installation
 
-## Clone the repository
+### Project
+1.  Clone the git repository:
 
-    git clone https://github.com/PedroFelli/VUTTR-api.git
+          git clone https://github.com/PedroFelli/VUTTR-api.git
 
-
-## Install the dependencies
-    cd VUTTR-api
-
-    yarn
-
-## Edit .env
-
-  Copy the `example.env` to `.env`, and put your `MONGODB_URL`= and `APP_SECRET`
-
-## Run the app
-
-    yarn start
+2. In the new folder you will find a `example.env` file, duplicate it and rename it to `.env` only.
+3. in the new `.env` file, the env variables to fit your environment `MONGODB_URL` and `APP_SECRET`.
+4. Run `npm install` or `yarn` to install the packages.
+8. In another window run `npm run start` or `yarn start` .
+5. Open your browser and navigate to `localhost:3000` .
+6. You should now see the APIs landing page.
 
 
-## Run the tests
-
-    yarn jest
-
-
-
+## Run tests
+To run the tests `npm test` or `yarn test`.
 
 
 
 # Data Structures
 
 ## User (object)
-+ name: Pedro (string)
-+ email: pedro@email.com (string)
-+ password: yourpassord (string)
++ name: "Pedro" (string)
++ email: "pedro@email.com"(string)
++ password: "yourpassord" (string)
 
 ## Login (object)
 
-+ email: pedro@email.com (string)
-+ password: yourpassord (string)
++ email: "pedro@email.com" (string)
++ password: "yourpassord" (string)
 
 
 ## Tool (object)
@@ -69,10 +65,10 @@ This project was made using the follow technologies:
     + Body
 
             {
-           	"name": "Pedro",
-	          "email": "pedro@email.com",
-	          "password": "12345678"
-          },
+                "name": "Pedro",
+	            "email": "pedro@email.com",
+	            "password": "12345678"
+            },
     + Schema
 
             {
@@ -127,7 +123,6 @@ This project was made using the follow technologies:
             }
 + Response 201 (application/json)
     + Attributes (User)
-
             {
            	  "user": {
                   "name": "Pedro",
@@ -143,7 +138,7 @@ This project was made using the follow technologies:
 ### Retrieve All Tools [GET]
 
 + Headers
-  + Authentication: Bearer JWT(required)
+  + Bearer JWT: `token`(required)
 + Response 200 (application/json)
     + Attributes (array[Tool])
 
@@ -151,15 +146,15 @@ This project was made using the follow technologies:
 
 ### Retrieve All Tool with specific tag[GET]
 + Headers
-   + Authentication: Bearer JWT(required)
+    + Bearer JWT: `token`(required)
 + Parameters
     + tag (string)
 + Response 200 (application/json)
     + Attributes (array[Tool])
 
 ## Tools [/tools]
-
 ### Create new Tool  [POST]
+Create a new Tool object.
 + Request (application/json)
     + Headers
        + Authentication: Bearer JWT(required)
@@ -205,8 +200,9 @@ This project was made using the follow technologies:
 ## Tools [/tools/{$id}]
 
 ### Delete Tool[DELETE]
+Delete a tool, `id` must be real.
 + Headers
-    + Authentication: Bearer JWT(required)
+     + Bearer JWT: `token`(required)
 + Parameters
     + id (string)
 + Response 204 (application/json)

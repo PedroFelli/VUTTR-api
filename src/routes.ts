@@ -11,6 +11,14 @@ const toolController = new ToolController();
 const userController = new UsersController();
 const sessionController = new SessionController();
 
+router.get('/', function (req, res) {
+  res.json({
+    msg:
+      'Welcome to VUTTR API, to kwow details acess: ' +
+      'https://github.com/PedroFelli/VUTTR-api',
+  });
+});
+
 router.post(
   '/users',
   celebrate({
