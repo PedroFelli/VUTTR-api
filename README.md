@@ -1,5 +1,5 @@
 ###  FORMAT: 1.0
-####  HOST: https://alpha-api.app.net
+####  HOST: https://api-bossabox-pedro.herokuapp.com/
 
 # Desafio Back-end VUTTR (Very Useful Tools to Remember)
   Um simples repositório para gerenciar ferramentas com seus respectivos nomes, links, descrições e tags.
@@ -35,8 +35,6 @@ This project was made using the follow technologies:
 ## Run tests
 To run the tests `npm test` or `yarn test`.
 
-
-
 # Data Structures
 
 ## User (object)
@@ -49,7 +47,6 @@ To run the tests `npm test` or `yarn test`.
 + email: "pedro@email.com" (string)
 + password: "yourpassord" (string)
 
-
 ## Tool (object)
 + id: 5f288c77ec82b65011cf6ab5 (string)
 + title: Notion (string)
@@ -58,9 +55,10 @@ To run the tests `npm test` or `yarn test`.
 + tags: ["organization","organizing"] (Array[string])
 
 
-## User [/users]
+# User [/users]
 
 ### Create new User  [POST]
+Create a new user to use the application.
 + Request (application/json)
     + Body
 
@@ -123,11 +121,13 @@ To run the tests `npm test` or `yarn test`.
             }
 + Response 201 (application/json)
     + Attributes (User)
+
             {
-           	  "user": {
-                  "name": "Pedro",
-                  "email": "pedro@gmail.com"
+             "user": {
+             "name": "Pedro",
+             "email": "pedro@email.com"
               },
+
               "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTY5ODM4MTMsImV4cCI6MTU5NzA3MDIxMywic3ViIjoiNWYzMDA2MTNjY2UyMjc1MDRiNTVhODUyIn0.1_vWJwR5yZ_3gMlG-63IEli9Zr2XzpC4qLolZV1Beqw"
             },
 
