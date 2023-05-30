@@ -8,7 +8,7 @@ describe('Create UserService', () => {
   it('should be able to create a new user', async () => {
     const fakeUserRepository = new FakeUserRepository();
     const hashProvider = new FakeHashProvider();
-
+    // add comment
     const createUser = new CreateUserService(fakeUserRepository, hashProvider);
 
     const user = await createUser.execute({
@@ -19,7 +19,7 @@ describe('Create UserService', () => {
 
     expect(user).toEqual({
       name: 'Pedro',
-      email: 'pedro@email.com',
+      email: 'pedro@email.coma',
     });
   });
 
