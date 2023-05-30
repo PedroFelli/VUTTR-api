@@ -19,7 +19,7 @@ describe('Create UserService', () => {
 
     expect(user).toEqual({
       name: 'Pedro',
-      email: 'pedro@email.com',
+      email: 'pedro@email.comaa',
     });
   });
 
